@@ -1,0 +1,17 @@
+<h2>New Diagonosis</h2>
+<form action="/diagnosis" method="post">
+  <div>
+    <% @symptoms.each do |symptom| %>
+      <select name="<%=symptom%>">
+        <option value="0">None</option>
+        <option value="0">Mild</option>
+        <option value="0.25">Moderate</option>
+        <option value="0.5">Severe</option>
+        <option value="0.75">Very Severe</option>
+      </select>
+    <% end %>
+  </div>
+  <div>
+    <input type="submit" value="Diagnose">
+  </div>
+</form>

@@ -8,4 +8,8 @@ class MalTrack < Sinatra::Base
   use Rack::MethodOverride
 
   include ViewHelper
+
+  get '/' do
+    erb :home
+  end
 end
