@@ -23,4 +23,10 @@ class MalTrack < Sinatra::Base
     @diagnosis.save
     redirect '/diagnosis'
   end
+
+  get '/diagnosis' do
+    flash.now[:notice] = [Diagnosis.last.display]
+    @diagnoses = Diagnosis.all
+    erb :'/diagnosis/all'
+  end
 end

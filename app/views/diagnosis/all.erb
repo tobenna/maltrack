@@ -1,0 +1,6 @@
+<% @diagnoses.each do |diagnosis| %>
+  <atricle>
+    <div>Summmary: <%= diagnosis.display %><div>
+    <div>Recorded: <%= diagnosis.time_ts %></div>
+  </atricle>
+<% end %>

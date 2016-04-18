@@ -13,6 +13,7 @@ class Diagnosis
   property :dizziness, Float
   property :loss_of_apetite, Float
   property :mp, Float
+  property :time, DateTime, default: DateTime.now
 
   def summary
     @mild     = square_sum_root(get_judgement(Rule.all(type: 0)))
@@ -21,6 +22,18 @@ class Diagnosis
     @v_severe = square_sum_root(get_judgement(Rule.all(type: 3)))
     return 0 unless output > 0
     output.round(2)
+  end
+
+  def display
+    severity = 'very severe' if summary >= 75
+    severity = 'severe' if summary <= 74
+    severity = 'moderate' if summary <= 50
+    severity = 'mild' if summary <= 25
+    "The patiant has #{summary}% chance of #{severity} malaria"
+  end
+
+  def time_ts
+    time.strftime('%m %d, %Y, %H:%M')
   end
 
   private
@@ -39,4 +52,6 @@ class Diagnosis
     bottom = @mild + @moderate + @severe + @v_severe
     (top/bottom) * 100
   end
+
+
 end
