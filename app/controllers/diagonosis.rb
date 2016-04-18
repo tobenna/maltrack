@@ -20,6 +20,7 @@ class MalTrack < Sinatra::Base
     @diagnosis.dizziness = params['Dizziness']
     @diagnosis.loss_of_apetite = params['Loss of Apetite']
     @diagnosis.mp = params['MP']
+    @diagnosis.save
     redirect '/diagnosis'
   end
 end

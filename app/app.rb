@@ -8,6 +8,7 @@ require 'tilt/erb'
 
 require_relative './models/user'
 require_relative './models/diagonosis'
+require_relative './models/rule'
 require_relative './helpers/view_helper'
 require_relative './models/data_mapper_setup'
 
